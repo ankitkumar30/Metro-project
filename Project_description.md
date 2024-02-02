@@ -12,3 +12,7 @@ When the user enters the source and destination station, as a result user can se
 
 ![Code of statement](image.png)
 
+Output of the Program
+
+![output pic of codespaces in github](image-1.png)
+
