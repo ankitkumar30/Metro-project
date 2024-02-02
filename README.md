@@ -10,9 +10,9 @@
 
 **When the user enters the source and destination station, as a result user can see the minimum number of stations between them**
 
-![Code of statement](image.png)
+![Some of the code](some-code.png)
 
-**Output of the Program**
+**Output of the Program is Like**
 
-![output pic of codespaces in github](image-1.png)
+![alt text](output.png)
 

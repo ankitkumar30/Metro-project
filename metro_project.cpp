@@ -74,9 +74,9 @@ public:
         // Print the result
         cout << "Shortest path from " << stations[source].name << " to " << stations[destination].name << ": "<<endl;
         for (int stationIndex : shortestPath) {
-            cout << stations[stationIndex].name <<endl<< "\u2193" <<endl;
+            cout << "\u2193" <<endl <<stations[stationIndex].name <<endl;
         }
-        cout << "\n";
+        cout << endl;
     }
 };
 
@@ -123,7 +123,7 @@ int main() {
     metro.addStation("Lalghati");
     metro.addStation("Tajul Masjid");
     metro.addStation("Hamidia Hospital");
-    metro.addStation("Kamla PArk");
+    metro.addStation("Kamla Park");
     metro.addStation("Polytechnic Square");
     metro.addStation("Roshanpura");
     metro.addStation("New Market");
@@ -233,7 +233,7 @@ int main() {
     mpp["Lalghati"] = 37;
     mpp["Tajul Masjid"] = 38;
     mpp["Hamidia Hospital"] = 39;
-    mpp["Kamla PArk"] = 40;
+    mpp["Kamla Park"] = 40;
     mpp["Polytechnic Square"] = 41;
     mpp["Roshanpura"] = 42;
     mpp["New Market"] = 43;
@@ -250,14 +250,14 @@ int main() {
     // Example: Find the shortest path from Station A to Station B
     string source ; // Station A
     cout<<"Enter Source Station:"<<endl;
-    getline(cin,source);
     fflush(stdin);
+    getline(cin,source);
+  
     
     string destination; // Station B
     cout<<"Enter destination Station:"<<endl;
+    fflush(stdin);
     getline(cin,destination);
-    cout<<destination.length()<<endl;
-
     metro.displayShortestPath(mpp[source], mpp[destination]);
     return 0;
 }
