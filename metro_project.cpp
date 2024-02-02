@@ -5,6 +5,7 @@
 #include <queue>
 #include <limits>
 #include<algorithm>
+#include<unordered_map>
 using namespace std;
 
 // Structure to represent a metro station
@@ -73,7 +74,7 @@ public:
         // Print the result
         cout << "Shortest path from " << stations[source].name << " to " << stations[destination].name << ": "<<endl;
         for (int stationIndex : shortestPath) {
-            cout << stations[stationIndex].name << " -> ";
+            cout << stations[stationIndex].name <<endl<< "\u2193" <<endl;
         }
         cout << "\n";
     }
@@ -191,12 +192,72 @@ int main() {
     metro.addConnection(34, 35, 3);
    
     
+    unordered_map<string,int> mpp;
+    mpp["Gandhi Nagar"] = 0;
+    mpp["Karond"] = 1;
+    mpp["Berasia"] = 2;
+    mpp["Budhwara"] = 3;
+    mpp["Jahangirabad"] = 4;
+    mpp["Roushanpura"] = 5;
+    mpp["Kotra Sultanabad"] = 6;
+    mpp["Nehru Nagar"] = 7;
+    mpp["Shyamla Hills"] = 8;
+    mpp["Van Vihar"] = 9;
+    mpp["Jawahar Chowk" ] = 10;
+    mpp["Rangmahal"] = 11;
+    mpp["Vidhan Sabha"] = 12;
+    mpp["MP Nagar"] = 13;
+    mpp["6 no. stop"] = 14;
+    mpp["Shivaji Nagar"] = 15;
+    mpp["Char imli"] = 16;
+    mpp["Bittan Market"] = 17;
+    mpp["Shahpura"] = 18;
+    mpp["Gulmohar"] = 19;
+    mpp["Akriti Eco City"] = 20;
+    mpp["Saliya"] = 21;
+    mpp["Chandbad"] = 22;
+    mpp["Ashoka Garden"] = 23;
+    mpp["Govindpura"] = 24;
+    mpp["Minal"] = 25;
+    mpp["Piplani"] = 26;
+    mpp["Ayodhya Bypass"] = 27;
+    mpp["Anand Nagar"] = 28;
+    mpp["Awadhpuri"] = 29;
+    mpp["Barkheda Pathani"] = 30;
+    mpp["Saket Nagar"] = 31;
+    mpp["AIIMS"] = 32;
+    mpp["Barkatullah University"] = 33;
+    mpp["Misrod"] = 34;
+    mpp["Ratanpur"] = 35;
+    mpp["Bairagarh"]= 36;
+    mpp["Lalghati"] = 37;
+    mpp["Tajul Masjid"] = 38;
+    mpp["Hamidia Hospital"] = 39;
+    mpp["Kamla PArk"] = 40;
+    mpp["Polytechnic Square"] = 41;
+    mpp["Roshanpura"] = 42;
+    mpp["New Market"] = 43;
+    mpp["Mata MAndir"] = 44;
+    mpp["MANIT Square"] = 45;
+    mpp["Patrakar Colony"] = 46;
+    mpp["Chuna Bhatti"] = 47;
+    mpp["Sarvdharm"] = 48;
+    mpp["Bima Kunj"] = 49;
+    mpp["Danish Kunj"] = 50;
+    mpp["Nayapura"] = 51;
+    mpp["Bairagarh Chichli"] = 52;
 
-    // Example: Find the shortest path from Station A to Station C
-    int source = 0; // Station A
-    int destination = 34; // Station C
+    // Example: Find the shortest path from Station A to Station B
+    string source ; // Station A
+    cout<<"Enter Source Station:"<<endl;
+    getline(cin,source);
+    fflush(stdin);
+    
+    string destination; // Station B
+    cout<<"Enter destination Station:"<<endl;
+    getline(cin,destination);
+    cout<<destination.length()<<endl;
 
-    metro.displayShortestPath(source, destination);
-
+    metro.displayShortestPath(mpp[source], mpp[destination]);
     return 0;
 }
