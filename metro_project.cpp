@@ -1,17 +1,13 @@
 //////////////////// Bhopal Metro project  //////////////////////////
 
-#include <iostream>
-#include <vector>
-#include <queue>
-#include <limits>
-#include<algorithm>
-#include<unordered_map>
+#include <bits/stdc++.h>
 using namespace std;
 
 // Structure to represent a metro station
 struct Station {
     string name;
-    vector<pair<int, int>> connections; // connected station index and distance
+    vector<pair<int, int>> connections; // {connected station index, distance}
+   // can be edited
 };
 
 // Class to represent the metro network
@@ -33,10 +29,12 @@ public:
 
     // Function to find the shortest path using Dijkstra's algorithm
     vector<int> findShortestPath(int source, int destination) {
-        vector<int> distance(stations.size(), numeric_limits<int>::max());
+        
+        vector<int> distance(stations.size(), INT_MAX);
         vector<int> parent(stations.size(), -1);
 
         priority_queue<pair<int, int>, vector<pair<int, int>>, greater<pair<int, int>>> pq;
+        // Declaring Min-Heap 
 
         distance[source] = 0;
         pq.push({0, source});
@@ -73,6 +71,7 @@ public:
 
         // Print the result
         cout << "Shortest path from " << stations[source].name << " to " << stations[destination].name << ": "<<endl;
+        
         for (int stationIndex : shortestPath) {
             cout << "\u2193" <<endl <<stations[stationIndex].name <<endl;
         }
