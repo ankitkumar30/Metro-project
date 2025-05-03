@@ -5,8 +5,10 @@ using namespace std;
 
 // Structure to represent a metro station
 struct Station {
-    string name;
-    vector<pair<int, int>> connections; // {connected station index, distance}
+    string name;//Take input station name
+    string line;//take input line color
+    vector<pair<int, int>> connections; 
+    // {connected station index, distance}
 };
 
 // Class to represent the metro network
@@ -16,8 +18,9 @@ private:
 
 public:
     // Function to add a station to the network
-    void addStation(const string& name) {
-        stations.push_back({name, {}});
+    void addStation(const string& name,const string& line)
+    {
+        stations.push_back({name,line,{}});
     }
 
     // Function to add a connection between two stations with a given distance
@@ -71,74 +74,81 @@ vector<int> Metro::findShortestPath(int source, int destination) {
 
  // Function to display the shortest path between stations
  void Metro::displayShortestPath(int source, int destination) {
+    if(source==5 || destination==5){
+        cout<<"under construction"<<endl;
+        cout<<"Sorry!! for you inconvinience"<<endl;;
+    }
+    else{
     vector<int> shortestPath = findShortestPath(source, destination);
 
     // Print the result
     cout << "Shortest path from " << stations[source].name << " to " << stations[destination].name << ": "<<endl;
-    
+    cout<<endl;
     for (int stationIndex : shortestPath) {
-        cout <<"\u2193"<<stations[stationIndex].name <<endl;
+        cout <<stations[stationIndex].name <<"/"<<stations[stationIndex].line<<" -> "<<endl;
     }
-    cout << endl;
+    cout<<endl;
+    cout <<"Thank You!!"<<endl;
+    }
 }
 
 //Main function
 int main() {
     // Create a metro network
     Metro metro;
-    metro.addStation("Gandhi Nagar - Orange Line");
-    metro.addStation("Karond - Orange Line");
-    metro.addStation("Berasia - Orange Line");
-    metro.addStation("Budhwara - Orange Line");
-    metro.addStation("Jahangirabad - Orange Line");
-    metro.addStation("Roushanpura");
-    metro.addStation("Kotra Sultanabad - Orange Line");
-    metro.addStation("Nehru Nagar - Orange Line");
-    metro.addStation("Shyamla Hills - Orange Line");
-    metro.addStation("Van Vihar - Green Line");
-    metro.addStation("Jawahar Chowk - Green Line");
-    metro.addStation("Rangmahal - Green Line");
-    metro.addStation("Vidhan Sabha - Green Line");
-    metro.addStation("MP Nagar - Green Line, Red Line");
-    metro.addStation("6 no. stop - Green Line");
-    metro.addStation("Shivaji Nagar - Green Line");
-    metro.addStation("Char imli - Green Line");
-    metro.addStation("Bittan Market - Green Line");
-    metro.addStation("Shahpura - Green Line");
-    metro.addStation("Gulmohar - Green Line");
-    metro.addStation("Akriti Eco City - Green Line");
-    metro.addStation("Saliya - Green Line");
-    metro.addStation("Chandbad - Red Line");
-    metro.addStation("Ashoka Garden - Red Line");
-    metro.addStation("Govindpura - Red Line");
-    metro.addStation("Minal - Red Line");
-    metro.addStation("Piplani - Red Line");
-    metro.addStation("Ayodhya Bypass - Red Line");
-    metro.addStation("Anand Nagar - Red Line");
-    metro.addStation("Awadhpuri - Red Line");
-    metro.addStation("Barkheda Pathani - Red Line");
-    metro.addStation("Saket Nagar - Red Line");
-    metro.addStation("AIIMS - Red Line");
-    metro.addStation("Barkatullah University - Red Line");
-    metro.addStation("Misrod - Red Line");
-    metro.addStation("Ratanpur - Red Line");
-    metro.addStation("Bairagarh - Yellow Line");
-    metro.addStation("Lalghati - Yellow Line");
-    metro.addStation("Tajul Masjid - Yellow Line");
-    metro.addStation("Hamidia Hospital - Yellow Line");
-    metro.addStation("Kamla Park - Yellow Line");
-    metro.addStation("Polytechnic Square - Yellow Line");
-    metro.addStation("Roshanpura - Yellow Line, Orange Line");
-    metro.addStation("New Market - Yellow Line, Green Line");
-    metro.addStation("Mata Mandir - Yellow Line");
-    metro.addStation("MANIT Square - Yellow Line");
-    metro.addStation("Patrakar Colony - Yellow Line");
-    metro.addStation("Chuna Bhatti - Yellow Line");
-    metro.addStation("Sarvdharm - Yellow Line");
-    metro.addStation("Bima Kunj - Yellow Line");
-    metro.addStation("Danish Kunj - Yellow Line");
-    metro.addStation("Nayapura - Yellow Line");
-    metro.addStation("Bairagarh Chichli - Yellow Line, Green Line");
+    metro.addStation("Gandhi Nagar", "orange line");//("Station name","Line")
+    metro.addStation("Karond","orange line");
+    metro.addStation("Berasia","orange line");
+    metro.addStation("Budhwara","orange line");
+    metro.addStation("Jahangirabad","orange line");
+    metro.addStation("Roushanpura","under constrn"); //Under construction
+    metro.addStation("Kotra Sultanabad","orange line");
+    metro.addStation("Nehru Nagar","orange line");
+    metro.addStation("Shyamla Hills","orange line");
+    metro.addStation("Van Vihar","green line");
+    metro.addStation("Jawahar Chowk","green line");
+    metro.addStation("Rangmahal","green line");
+    metro.addStation("Vidhan Sabha","green line");
+    metro.addStation("MP Nagar","green-red line");
+    metro.addStation("6 no. stop","green line");
+    metro.addStation("Shivaji Nagar","green line");
+    metro.addStation("Char imli","green line");
+    metro.addStation("Bittan Market","green line");
+    metro.addStation("Shahpura","green line");
+    metro.addStation("Gulmohar","green line");
+    metro.addStation("Akriti Eco City","green line");
+    metro.addStation("Saliya","green line");
+    metro.addStation("Chandbad","red line");
+    metro.addStation("Ashoka Garden","red line");
+    metro.addStation("Govindpura","red line");
+    metro.addStation("Minal","red line");
+    metro.addStation("Piplani","red line");
+    metro.addStation("Ayodhya Bypass","red line");
+    metro.addStation("Anand Nagar","red line");
+    metro.addStation("Awadhpuri","red line");
+    metro.addStation("Barkheda Pathani","red line");
+    metro.addStation("Saket Nagar","red line");
+    metro.addStation("AIIMS","red line");
+    metro.addStation("Barkatullah University","red line");
+    metro.addStation("Misrod","red line");
+    metro.addStation("Ratanpur","red line");
+    metro.addStation("Bairagarh","yellow line");
+    metro.addStation("Lalghati","yellow line");
+    metro.addStation("Tajul Masjid","yellow line");
+    metro.addStation("Hamidia Hospital","yellow line");
+    metro.addStation("Kamla Park","yellow line");
+    metro.addStation("Polytechnic Square","yellow line");
+    metro.addStation("Roshanpura","yellow-orange line");
+    metro.addStation("New Market","yellow-green line");
+    metro.addStation("Mata Mandir","yellow line");
+    metro.addStation("MANIT Square","yellow line");
+    metro.addStation("Patrakar Colony","yellow line");
+    metro.addStation("Chuna Bhatti","yellow line");
+    metro.addStation("Sarvdharm","yellow line");
+    metro.addStation("Bima Kunj","yellow line");
+    metro.addStation("Danish Kunj","yellow line");
+    metro.addStation("Nayapura","yellow line");
+    metro.addStation("Bairagarh Chichli","yellow-green line");
     
     metro.addConnection(0, 1, 5); // Connection between Station A and Station B with distance 5
     metro.addConnection(1, 2, 3); // Connection between Station B and Station C with distance 3
